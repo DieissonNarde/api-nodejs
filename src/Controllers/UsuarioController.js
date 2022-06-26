@@ -29,3 +29,12 @@ exports.use = (req, res, next) => {
   }
   next() //middleware
 }
+
+exports.use = (req, res, next) => {
+  res.status(404).send('Sorry cant find that!')
+}
+
+exports.use = (err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+}
